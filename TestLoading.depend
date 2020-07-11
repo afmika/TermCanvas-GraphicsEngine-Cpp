@@ -50,3 +50,38 @@
 
 1594403877 c:\users\michael\documents\code blocks projects\testloading\include\palette.h
 
+1594499371 source:c:\users\michael\documents\code blocks projects\termcanvas\main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<cmath>
+	<TermCanvas.h>
+	<Graphics.h>
+	<Palette.h>
+
+1594497387 c:\users\michael\documents\code blocks projects\termcanvas\include\termcanvas.h
+	<iostream>
+	<cstdint>
+	<vector>
+	<stdio.h>
+	<windows.h>
+	"Color.h"
+
+1594470980 c:\users\michael\documents\code blocks projects\termcanvas\include\color.h
+	<iostream>
+	<cstdint>
+
+1594499268 c:\users\michael\documents\code blocks projects\termcanvas\include\graphics.h
+	<cmath>
+	<iostream>
+	<vector>
+	<map>
+
+1594403877 c:\users\michael\documents\code blocks projects\termcanvas\include\palette.h
+
+1594496374 source:c:\users\michael\documents\code blocks projects\termcanvas\src\termcanvas.cpp
+	"TermCanvas.h"
+
+1594470968 source:c:\users\michael\documents\code blocks projects\termcanvas\src\color.cpp
+	"Color.h"
+

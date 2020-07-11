@@ -45,7 +45,7 @@ void TermCanvas::clear() {
 
     for (uint32_t r = 0; r < row; r++) {
         for (uint32_t c = 0; c < col; c++) {
-            set(c, r, default_dead_cell);
+            set(c - translate_x, r - translate_y, default_dead_cell);
         }
     }
 }
@@ -57,18 +57,24 @@ bool TermCanvas::isInside(int x, int y) {
 }
 
 void TermCanvas::set(int x, int y, Color value ) {
+    x += translate_x;
+    y += translate_y;
     if ( isInside(x, y) ) {
         (*screen)[y][x] = value.toChar( DEFAULT_COLOR_PALETTE );
     }
 }
 
 void TermCanvas::set(int x, int y, char charact ) {
+    x += translate_x;
+    y += translate_y;
     if ( isInside(x, y) ) {
         (*screen)[y][x] = charact;
     }
 }
 
 void TermCanvas::set(int x, int y) {
+    x += translate_x;
+    y += translate_y;
     if ( isInside(x, y) ) {
         (*screen)[y][x] = default_alive_cell.toChar( DEFAULT_COLOR_PALETTE );
     }
@@ -83,7 +89,7 @@ void TermCanvas::line(int xi, int yi, int xf, int yf, Color value) {
     int dy = (yf - yi);
     int dx = (xf - xi);
     // vertical
-    if ( dx == 0 ) {
+    if ( dx == 0 && dy != 0) {
         int dp = dy < 0 ? -1 : 1;
         do {
             set(xi, yi, value);
@@ -93,7 +99,7 @@ void TermCanvas::line(int xi, int yi, int xf, int yf, Color value) {
     }
 
     // horizontal
-    if ( dy == 0 ) {
+    if ( dy == 0 && dx != 0) {
         int dp = dx < 0 ? -1 : 1;
         do {
             set(xi, yi, value);
@@ -102,24 +108,36 @@ void TermCanvas::line(int xi, int yi, int xf, int yf, Color value) {
         return;
     }
 
+    if ( dx == 0 && dy == 0 ) {
+        return;
+    }
+
     // dx != 0 && dy != 0
-    int incr_e  = 2 * dy ;
-    int incr_ne = 2 * (dy - dx);
-    int e = 2 * dy - dx;
-    while( xi <= xf ) {
+    // Bresenham's algorithm
+    dx = abs(dx);
+    dy = abs(dy);
+    int sx = xi < xf ? 1 : -1;
+    int sy = yi < yf ? 1 : -1;
+    int err = dx - dy;
+    while ( true ) {
         set(xi, yi, value);
-        if(e >= 0){
-            yi += 1;
-            e  += incr_ne;
-        } else {
-            e += incr_e;
+        if ( xi == xf && yi == yf ) {
+            break;
         }
-        xi++;
+        int e2 = 2 * err;
+        if ( e2 > -dy ) {
+            err -= dy;
+            xi += sx;
+        }
+        if ( e2 < dx ) {
+            err += dx;
+            yi += sy;
+        }
     }
 }
 
 void TermCanvas::line(int xi, int yi, int xf, int yf) {
-    line(xi, yi, xf, yf, default_alive_cell);
+    line(xi, yi, xf, yf, stroke_color);
 }
 void TermCanvas::fillRect(int x, int y, int width, int height) {
     int limit = x + width;

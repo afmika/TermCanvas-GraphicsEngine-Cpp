@@ -18,6 +18,7 @@ public:
     std::string DEFAULT_COLOR_PALETTE = "* ";
     uint32_t col;
     uint32_t row;
+
     Color default_dead_cell {0 , 0, 0};
     Color default_alive_cell{255, 255, 255};
 
@@ -57,9 +58,27 @@ public:
     Color getFillColor() const;
     Color getStrokeColor() const;
 
+    //transform
+    void translate(uint32_t x, uint32_t y) {
+        translate_x += x;
+        translate_y += y;
+    }
+
+    void moveTo(uint32_t x, uint32_t y) {
+        translate_x = x;
+        translate_y = y;
+    }
+
+    void restore () {
+        translate_x = 0;
+        translate_y = 0;
+    }
+
 private:
     Color fill_color{255, 255, 255};
     Color stroke_color{255, 255, 255};
+    uint32_t translate_x = 0;
+    uint32_t translate_y = 0;
     void init (uint32_t col_value, uint32_t row_value);
 };
 
