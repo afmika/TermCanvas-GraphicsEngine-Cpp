@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1594409546 source:c:\users\michael\documents\code blocks projects\testloading\main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<cmath>
+	<TermCanvas.h>
+	<Graphics.h>
+	<Palette.h>
+
+1593967981 
+
+1593986969 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<TermCanvas.h>
+	<cmath>
+
+1593981799 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/include/TermCanvas.h
+	<iostream>
+	<cstdint>
+	<vector>
+	<stdio.h>
+	<windows.h>
+
+1593984242 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/src/TermCanvas.cpp
+	"TermCanvas.h"
+
+1594409077 c:\users\michael\documents\code blocks projects\testloading\include\termcanvas.h
+	<iostream>
+	<cstdint>
+	<vector>
+	<stdio.h>
+	<windows.h>
+	"Color.h"
+
+1594409597 source:c:\users\michael\documents\code blocks projects\testloading\src\termcanvas.cpp
+	"TermCanvas.h"
+
+1594403818 c:\users\michael\documents\code blocks projects\testloading\include\color.h
+	<iostream>
+	<cstdint>
+
+1594405283 source:c:\users\michael\documents\code blocks projects\testloading\src\color.cpp
+	"Color.h"
+
+1594396922 c:\users\michael\documents\code blocks projects\testloading\include\graphics.h
+	<cmath>
+
+1594403877 c:\users\michael\documents\code blocks projects\testloading\include\palette.h
+
