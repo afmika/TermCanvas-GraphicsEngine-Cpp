@@ -13,7 +13,6 @@ public:
     Color();
     virtual ~Color();
     uint32_t toUint32 ();
-    char toChar ();
     char toChar (std::string letters);
 };
 #endif // COLOR_H

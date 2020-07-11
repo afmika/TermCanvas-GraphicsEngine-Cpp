@@ -17,10 +17,6 @@ uint32_t Color::toUint32 () {
     return result;
 }
 
-char Color::toChar () {
-    return toChar();
-}
-
 char Color::toChar (std::string letters) {
     double  color   = (double) r;
             color  += (double) g,
