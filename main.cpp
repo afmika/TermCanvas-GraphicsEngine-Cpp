@@ -56,9 +56,10 @@ void animateFace(char axis, double angle, int scale, TermCanvas& canvas, Graphic
     }
 
     // 3d rotation
-    Graphics::Type::Matrix rot_mat = Graphics::Math::matRot3d(angle, axis);
+    // Graphics::Type::Matrix rot_mat = Graphics::Math::matRot3d(angle, axis);
     for (size_t i = 0; i < face.size(); i++) {
-        face[i] = Graphics::Transf::apply(face[i], rot_mat);
+        // face[i] = Graphics::Transf::apply(face[i], rot_mat);
+        face[i] = Graphics::Transf::rotate(face[i], angle, axis);
     }
 }
 

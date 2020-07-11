@@ -216,8 +216,14 @@ namespace Graphics {
             return out;
         }
 
-        Point2D rotate(Point2D point, double teta);
-        Point3D rotate(Point3D point, double teta, char axis);
+        Point2D rotate(Point2D point, double angle) {
+            Graphics::Type::Matrix rot_mat = Graphics::Math::matRot2d(angle);
+            return Graphics::Transf::apply(point, rot_mat);
+        }
+        Point3D rotate(Point3D point, double angle, char axis) {
+            Graphics::Type::Matrix rot_mat = Graphics::Math::matRot3d(angle, axis);
+            return Graphics::Transf::apply(point, rot_mat);
+        }
     };
 
 }
