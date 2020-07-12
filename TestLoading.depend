@@ -8,7 +8,9 @@
 	<Graphics.h>
 	<Palette.h>
 
-1593967981 
+1593981799 >
+
+1594557390 
 
 1593986969 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/main.cpp
 	<iostream>
@@ -16,6 +18,8 @@
 	<chrono>
 	<TermCanvas.h>
 	<cmath>
+
+1593986969 s.h>
 
 1593981799 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/include/TermCanvas.h
 	<iostream>
@@ -26,6 +30,8 @@
 
 1593984242 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TestLoading/src/TermCanvas.cpp
 	"TermCanvas.h"
+
+1594557772 s.h"
 
 1594409077 c:\users\michael\documents\code blocks projects\testloading\include\termcanvas.h
 	<iostream>
@@ -57,6 +63,8 @@
 	<cmath>
 	"TermCanvasInc.h"
 
+1594564768 sInc.h"
+
 1594561245 c:\users\michael\documents\code blocks projects\termcanvas\include\termcanvas.h
 	<iostream>
 	<cstdint>
@@ -65,6 +73,8 @@
 	<windows.h>
 	"Color.h"
 	"Graphics.h"
+
+1594563182 h"
 
 1594470980 c:\users\michael\documents\code blocks projects\termcanvas\include\color.h
 	<iostream>
@@ -99,4 +109,47 @@
 	<chrono>
 	<cmath>
 	"TermCanvasInc.h"
+
+1594581119 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<cmath>
+	"TermCanvasInc.h"
+
+1594557772 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/include/TermCanvasInc.h
+	"Palette.h"
+	"Color.h"
+	"Graphics.h"
+	"TermCanvas.h"
+
+1594403877 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/include/Palette.h
+
+1594470980 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/include/Color.h
+	<iostream>
+	<cstdint>
+
+1594562926 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/include/Graphics.h
+	<cmath>
+	<iostream>
+	<vector>
+	<map>
+
+1594561245 /media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/include/TermCanvas.h
+	<iostream>
+	<cstdint>
+	<vector>
+	<stdio.h>
+	<windows.h>
+	"Color.h"
+	"Graphics.h"
+
+1594557390 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/src/Color.cpp
+	"Color.h"
+
+1594563182 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/src/Graphics.cpp
+	"Graphics.h"
+
+1594561284 source:/media/afmika/C2661AD6661ACAD5/Users/Michael/Documents/Code Blocks Projects/TermCanvas/src/TermCanvas.cpp
+	"TermCanvas.h"
 
