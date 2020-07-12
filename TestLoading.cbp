@@ -38,8 +38,10 @@
 		<Unit filename="include/Graphics.h" />
 		<Unit filename="include/Palette.h" />
 		<Unit filename="include/TermCanvas.h" />
+		<Unit filename="include/TermCanvasInc.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Color.cpp" />
+		<Unit filename="src/Graphics.cpp" />
 		<Unit filename="src/TermCanvas.cpp" />
 		<Extensions>
 			<code_completion />

@@ -27,7 +27,7 @@ char Color::toChar (std::string letters) {
     // 255   -> idx = max_range
     // color -> idx = ?
     int idx = (int) ( color * max_range / 255.0 );
-    return letters[ letters.size() - idx - 1 ];
+    return letters[ range - idx ];
 }
 
 Color::~Color()

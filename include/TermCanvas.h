@@ -11,6 +11,7 @@
 #endif // _WIN32
 
 #include "Color.h"
+#include "Graphics.h"
 
 class TermCanvas {
 public:
@@ -58,21 +59,31 @@ public:
     Color getFillColor() const;
     Color getStrokeColor() const;
 
-    //transform
-    void translate(uint32_t x, uint32_t y) {
-        translate_x += x;
-        translate_y += y;
-    }
 
-    void moveTo(uint32_t x, uint32_t y) {
-        translate_x = x;
-        translate_y = y;
-    }
 
-    void restore () {
-        translate_x = 0;
-        translate_y = 0;
-    }
+    void line(Graphics::Point2D& pointi, Graphics::Point2D& pointf, Color value);
+    void line(Graphics::Point2D& pointi, Graphics::Point2D& pointf);
+    void line(Graphics::Point3D& pointi, Graphics::Point3D& pointf, Color value);
+    void line(Graphics::Point3D& pointi, Graphics::Point3D& pointf);
+
+    void drawPoint(Graphics::Point2D& point, Color color);
+    void drawPoint(Graphics::Point3D& point, Color color);
+    void drawPoint(Graphics::Point2D& point);
+    void drawPoint(Graphics::Point3D& point);
+
+    void drawPolygon(Graphics::Figure::Polygon2D& poly2d, Color color);
+    void drawPolygon(Graphics::Figure::Polygon3D& poly3d, Color color);
+    void drawPolygon(Graphics::Figure::Polygon2D& poly2d);
+    void drawPolygon(Graphics::Figure::Polygon3D& poly3d);
+
+    void drawShape(Graphics::Figure::Shape& shape, Color color);
+    void drawShape(Graphics::Figure::Shape& shape);
+
+
+    // transform the current context
+    void translate(uint32_t x, uint32_t y);
+    void moveTo(uint32_t x, uint32_t y);
+    void restore ();
 
 private:
     Color fill_color{255, 255, 255};

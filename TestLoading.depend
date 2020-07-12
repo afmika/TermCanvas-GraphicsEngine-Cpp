@@ -50,28 +50,27 @@
 
 1594403877 c:\users\michael\documents\code blocks projects\testloading\include\palette.h
 
-1594546125 source:c:\users\michael\documents\code blocks projects\termcanvas\main.cpp
+1594562501 source:c:\users\michael\documents\code blocks projects\termcanvas\main.cpp
 	<iostream>
 	<thread>
 	<chrono>
 	<cmath>
-	<TermCanvas.h>
-	<Graphics.h>
-	<Palette.h>
+	"TermCanvasInc.h"
 
-1594497387 c:\users\michael\documents\code blocks projects\termcanvas\include\termcanvas.h
+1594561245 c:\users\michael\documents\code blocks projects\termcanvas\include\termcanvas.h
 	<iostream>
 	<cstdint>
 	<vector>
 	<stdio.h>
 	<windows.h>
 	"Color.h"
+	"Graphics.h"
 
 1594470980 c:\users\michael\documents\code blocks projects\termcanvas\include\color.h
 	<iostream>
 	<cstdint>
 
-1594499942 c:\users\michael\documents\code blocks projects\termcanvas\include\graphics.h
+1594562926 c:\users\michael\documents\code blocks projects\termcanvas\include\graphics.h
 	<cmath>
 	<iostream>
 	<vector>
@@ -79,9 +78,18 @@
 
 1594403877 c:\users\michael\documents\code blocks projects\termcanvas\include\palette.h
 
-1594545937 source:c:\users\michael\documents\code blocks projects\termcanvas\src\termcanvas.cpp
+1594561284 source:c:\users\michael\documents\code blocks projects\termcanvas\src\termcanvas.cpp
 	"TermCanvas.h"
 
-1594470968 source:c:\users\michael\documents\code blocks projects\termcanvas\src\color.cpp
+1594557390 source:c:\users\michael\documents\code blocks projects\termcanvas\src\color.cpp
 	"Color.h"
+
+1594557772 c:\users\michael\documents\code blocks projects\termcanvas\include\termcanvasinc.h
+	"Palette.h"
+	"Color.h"
+	"Graphics.h"
+	"TermCanvas.h"
+
+1594563182 source:c:\users\michael\documents\code blocks projects\termcanvas\src\graphics.cpp
+	"Graphics.h"
 

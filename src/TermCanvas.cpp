@@ -230,3 +230,87 @@ Color TermCanvas::getFillColor() const {
 Color TermCanvas::getStrokeColor() const {
     return stroke_color;
 }
+
+void TermCanvas::line(Graphics::Point2D& pointi, Graphics::Point2D& pointf, Color value) {
+    line(pointi.x, pointi.y, pointf.x, pointf.y, value);
+}
+void TermCanvas::line(Graphics::Point2D& pointi, Graphics::Point2D& pointf) {
+    line(pointi.x, pointi.y, pointf.x, pointf.y);
+}
+void TermCanvas::line(Graphics::Point3D& pointi, Graphics::Point3D& pointf, Color value) {
+    line(pointi.x, pointi.y, pointf.x, pointf.y, value);
+}
+void TermCanvas::line(Graphics::Point3D& pointi, Graphics::Point3D& pointf) {
+    line(pointi.x, pointi.y, pointf.x, pointf.y);
+}
+
+void TermCanvas::drawPoint(Graphics::Point2D& point, Color color) {
+    set(point.x, point.y, color);
+}
+
+void TermCanvas::drawPoint(Graphics::Point3D& point, Color color) {
+    set(point.x, point.y, color);
+}
+
+void TermCanvas::drawPoint(Graphics::Point2D& point) {
+    set(point.x, point.y);
+}
+
+void TermCanvas::drawPoint(Graphics::Point3D& point) {
+    set(point.x, point.y);
+}
+
+void TermCanvas::drawPolygon(Graphics::Figure::Polygon2D& poly2d, Color color) {
+    Graphics::Point2D head = poly2d[0];
+    for (size_t i = 1; i < poly2d.size(); i++) {
+        Graphics::Point2D p3d = poly2d[i];
+        line(head, p3d, color);
+        head = p3d;
+    }
+    line(head, poly2d[0], color);
+}
+
+void TermCanvas::drawPolygon(Graphics::Figure::Polygon3D& poly3d, Color color) {
+    Graphics::Point3D head = poly3d[0];
+    for (size_t i = 1; i < poly3d.size(); i++) {
+        Graphics::Point3D p3d = poly3d[i];
+        line(head, p3d, color);
+        head = p3d;
+    }
+    line(head, poly3d[0], color);
+}
+
+void TermCanvas::drawPolygon(Graphics::Figure::Polygon2D& poly2d) {
+    drawPolygon(poly2d, stroke_color);
+}
+
+void TermCanvas::drawPolygon(Graphics::Figure::Polygon3D& poly3d) {
+    drawPolygon(poly3d, stroke_color);
+}
+
+void TermCanvas::drawShape(Graphics::Figure::Shape& shape, Color color) {
+    for (Graphics::Figure::Polygon3D poly3d : shape ) {
+        drawPolygon( poly3d, color );
+    }
+}
+void TermCanvas::drawShape(Graphics::Figure::Shape& shape) {
+    drawShape(shape, stroke_color);
+}
+
+
+
+// transform the current context
+void TermCanvas::translate(uint32_t x, uint32_t y) {
+    translate_x += x;
+    translate_y += y;
+}
+
+void TermCanvas::moveTo(uint32_t x, uint32_t y) {
+    translate_x = x;
+    translate_y = y;
+}
+
+void TermCanvas::restore () {
+    translate_x = 0;
+    translate_y = 0;
+}

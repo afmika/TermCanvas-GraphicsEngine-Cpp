@@ -3,10 +3,7 @@
 #include <chrono>
 #include <cmath>
 
-#include <TermCanvas.h>
-#include <Graphics.h>
-#include <Palette.h>
-
+#include "TermCanvasInc.h"
 
 const int width  = 30;
 const int height = 24;
@@ -46,21 +43,12 @@ int func_def(int x) {
     return 5 * std::sin(x + daxis) + 10;
 }
 
-void animateFace(char axis, double angle, int scale, TermCanvas& canvas, Graphics::Figure::Polygon3D& face ) {
-    Graphics::Point3D head = face[0];
-    int sc = scale;
-    for (size_t i = 1; i < face.size(); i++) {
-        Graphics::Point3D p3d = face[i];
-        canvas.line(head.scale(sc).x, head.scale(sc).y, p3d.scale( sc ).x, p3d.scale( sc ).y);
-        head = p3d;
-    }
+void animateFace(char axis, double angle, int scale, TermCanvas& canvas, Graphics::Figure::Shape& cube ) {
+    Graphics::Figure::Shape to_draw = Graphics::Transf::scale(cube, scale);
+    canvas.drawShape( to_draw );
 
     // 3d rotation
-    // Graphics::Type::Matrix rot_mat = Graphics::Math::matRot3d(angle, axis);
-    for (size_t i = 0; i < face.size(); i++) {
-        // face[i] = Graphics::Transf::apply(face[i], rot_mat);
-        face[i] = Graphics::Transf::rotate(face[i], angle, axis);
-    }
+    cube = Graphics::Transf::rotate(cube, angle, axis);
 }
 
 int main() {
@@ -128,33 +116,38 @@ int main() {
     canvas.setStrokeColor(cstroke);
     canvas.setFillColor  (cfill);
 
+
     Graphics::Figure::Polygon3D bottom {
         {0, 0, 0},
         {0, 1, 0},
         {1, 1, 0},
         {1, 0, 0},
-        {0, 0, 0},
+        {0, 0, 0}
     };
     Graphics::Figure::Polygon3D top {
         {0, 0, 1},
         {0, 1, 1},
         {1, 1, 1},
         {1, 0, 1},
-        {0, 0, 1},
+        {0, 0, 1}
     };
     Graphics::Figure::Polygon3D face1 {
         {0, 0, 0},
         {0, 0, 1},
         {0, 1, 1},
         {0, 1, 0},
-        {0, 0, 0},
+        {0, 0, 0}
     };
     Graphics::Figure::Polygon3D face2 {
         {1, 0, 0},
         {1, 0, 1},
         {1, 1, 1},
         {1, 1, 0},
-        {1, 0, 0},
+        {1, 0, 0}
+    };
+
+    Graphics::Figure::Shape cube {
+        bottom, top, face1, face2
     };
 
     while ( true ) {
@@ -166,15 +159,8 @@ int main() {
         // rotation test
         double angle = 0.1;
         int scale = 15;
-        animateFace('x', angle, scale, canvas, bottom);
-        animateFace('x', angle, scale, canvas, top);
-        animateFace('x', angle, scale, canvas, face1);
-        animateFace('x', angle, scale, canvas, face2);
-
-        animateFace('z', angle, scale, canvas, bottom);
-        animateFace('z', angle, scale, canvas, top);
-        animateFace('z', angle, scale, canvas, face1);
-        animateFace('z', angle, scale, canvas, face2);
+        animateFace('x', angle, scale, canvas, cube);
+        animateFace('z', angle, scale, canvas, cube);
 
         canvas.draw();
 
