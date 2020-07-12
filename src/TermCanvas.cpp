@@ -1,5 +1,34 @@
 #include "TermCanvas.h"
 
+void drawArc(TermCanvas* canvas, int x, int y, int radius, Color color) {
+    int xi = radius,
+        yi = 0,
+        dx = 1 - 2 * radius,
+        dy = 1,
+        rad_err = 0;
+    while( xi >= yi ) {
+        std::vector<std::pair<int, int>> pts8 {
+            {xi, yi},
+            {-xi, -yi},
+            {xi, -yi},
+            {-xi, yi},
+        };
+        for (std::pair<int, int> pts : pts8) {
+            int px = pts.first, py = pts.second;
+            canvas->set(px + x, py + y, color);
+            canvas->set(py + x, px + y, color);
+        }
+        yi++;
+        rad_err += dy;
+        dy += 2;
+        if ( 2 * rad_err + dx > 0 ) {
+            xi--;
+            rad_err += dx;
+            dx += 2;
+        }
+    }
+}
+
 TermCanvas::TermCanvas(uint32_t col_value, uint32_t row_value)
 {
     this->init(col_value, row_value);
@@ -156,36 +185,14 @@ void TermCanvas::strokeRect(int x, int y, int width, int height) {
 }
 
 void TermCanvas::strokeCircle(int x, int y, int radius) {
-    int xi = radius,
-        yi = 0,
-        dx = 1 - 2 * radius,
-        dy = 1,
-        rad_err = 0;
-    while( xi >= yi ) {
-        std::vector<std::pair<int, int>> pts8 {
-            {xi, yi},
-            {-xi, -yi},
-            {xi, -yi},
-            {-xi, yi},
-        };
-        for (std::pair<int, int> pts : pts8) {
-            int px = pts.first, py = pts.second;
-            set(px + x, py + y, stroke_color);
-            set(py + x, px + y, stroke_color);
-        }
-        yi++;
-        rad_err += dy;
-        dy += 2;
-        if ( 2 * rad_err + dx > 0 ) {
-            xi--;
-            rad_err += dx;
-            dx += 2;
-        }
-    }
+    TermCanvas* canvas = this;
+    drawArc(canvas, x, y, radius, stroke_color);
 }
 
 void TermCanvas::fillCircle(int x, int y, int radius) {
-
+    TermCanvas* canvas = this;
+    for (int r = 0; r <= radius; r++ )
+        drawArc(canvas, x, y, r, fill_color);
 }
 
 void TermCanvas::plot2d(int (*f)(int), std::pair<int, int> x_range) {

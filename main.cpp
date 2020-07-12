@@ -113,6 +113,7 @@ int main() {
         canvas.strokeRect(rect2.x, rect2.y, dim2, dim2);
         // canvas.fillRect(rect1.x, rect1.y, dim1, dim1);
         // canvas.strokeCircle(arc.x, arc.y, radius);
+        // canvas.fillCircle(arc.x, arc.y, radius);
         canvas.text(rect2.x + 1, rect2.y + 3, "afmika");
         canvas.text(4, 2, "Hello World!");
 
