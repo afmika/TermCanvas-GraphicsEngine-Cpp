@@ -50,7 +50,7 @@
 
 1594403877 c:\users\michael\documents\code blocks projects\testloading\include\palette.h
 
-1594562501 source:c:\users\michael\documents\code blocks projects\termcanvas\main.cpp
+1594564829 source:c:\users\michael\documents\code blocks projects\termcanvas\main.cpp
 	<iostream>
 	<thread>
 	<chrono>
@@ -92,4 +92,11 @@
 
 1594563182 source:c:\users\michael\documents\code blocks projects\termcanvas\src\graphics.cpp
 	"Graphics.h"
+
+1594564768 source:c:\users\michael\documents\code blocks projects\termcanvas\examples\cube.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<cmath>
+	"TermCanvasInc.h"
 

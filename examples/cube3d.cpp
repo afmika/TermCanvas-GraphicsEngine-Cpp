@@ -19,7 +19,7 @@ void animateFace(char axis, double angle, int scale, TermCanvas& canvas, Graphic
 int main() {
     TermCanvas canvas(width, height);
     canvas.setColorPalette( Palette::STD_GRAY );
-
+	
     Color cfill   {255, 20, 10};
     Color cstroke {5, 5, 10};
 
@@ -59,11 +59,11 @@ int main() {
         canvas.clear();
         canvas.restore();
         canvas.text(1, 1, "3D Hello world!");
-        canvas.moveTo(width / 2 - 4 , height / 2 );
+        canvas.moveTo(width / 2 , height / 2 );
 
         // rotation test
         double angle = 0.1;
-        int scale = 12;
+        int scale = 15;
         animateFace('x', angle, scale, canvas, cube);
         animateFace('z', angle, scale, canvas, cube);
 
